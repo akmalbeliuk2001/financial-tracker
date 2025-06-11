@@ -4,7 +4,7 @@ import InputBase from "../atoms/InputBase"
 import LabelBase from "../atoms/LabelBase"
 
 import TransactionForm from "../molecules/TransactionForm"
-import TransactionItem from "../molecules/TransactionItem"
+// import TransactionItem from "../molecules/TransactionItem"
 
 export default function HomePage () {
   return(
@@ -14,7 +14,7 @@ export default function HomePage () {
       <LabelBase>Label Input</LabelBase>
 
       <TransactionForm></TransactionForm>
-      <TransactionItem></TransactionItem>
+      {/* <TransactionItem></TransactionItem> */}
     
     </>
   )

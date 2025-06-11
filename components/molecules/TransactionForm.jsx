@@ -6,7 +6,7 @@ import LabelBase from "../atoms/LabelBase";
 import InputBase from "../atoms/InputBase";
 import SelectBase from "../atoms/SelectBase";
 
-export default function TransactionForm () {
+export default function TransactionForm ({ user }) {
   const optionItems = [
     { value: '', label: 'Pilih Kategori' },
     { value: 'makan', label: 'Makan' },
