@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/atoms/ButtonBase.jsx", "components/pages/HomePage.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/atoms/ButtonBase.jsx", "components/pages/HomePage.jsx", "app/dashboard/page.jsx", "app/dashboard/page.jsx"],
   "exclude": ["node_modules"]
 }
