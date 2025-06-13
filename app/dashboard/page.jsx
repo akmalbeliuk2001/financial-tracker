@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-
+import Navigation from '@/components/organisms/Navigation';
 import TransactionForm from "@/components/molecules/TransactionForm";
 import TransactionList from "@/components/organisms/TransactionList"
 
@@ -19,10 +19,18 @@ export default function Dashboard () {
   return(
     <>
       <div className="w-full h-screen bg-white flex items-center justify-center">
+        <Navigation />
         <div>
           <p className="text-[#333] text-[50px] font-extrabold">Your Financial Dashboard</p>
-          <TransactionForm user={user} />
-          <TransactionList user={user} />
+          { user ? (
+            <>
+              <TransactionForm user={user} />
+              <TransactionList user={user} />
+            </>  
+          ) : (
+            <p>Loading User...</p>
+          )}
+          
 
         </div>
       </div>
