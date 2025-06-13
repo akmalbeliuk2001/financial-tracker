@@ -4,17 +4,19 @@ import { useEffect, useState } from "react"
 import Navigation from '@/components/organisms/Navigation';
 import TransactionForm from "@/components/molecules/TransactionForm";
 import TransactionList from "@/components/organisms/TransactionList"
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function Dashboard () {
-  const [user, setUser] = useState(null);
+  const { user } = useAuth();
+  // const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    const mockUser = {
-      uid: 'demo-user-123', // ganti nanti dengan Firebase Auth jika diaktifkan
-      name: 'Demo User',
-    }
-    setUser(mockUser)
-  }, [])
+  // useEffect(() => {
+  //   const mockUser = {
+  //     uid: 'demo-user-123', // ganti nanti dengan Firebase Auth jika diaktifkan
+  //     name: 'Demo User',
+  //   }
+  //   setUser(mockUser)
+  // }, [])
 
   return(
     <>
@@ -28,7 +30,7 @@ export default function Dashboard () {
               <TransactionList user={user} />
             </>  
           ) : (
-            <p>Loading User...</p>
+            <p>Silakan login terlebih dahulu</p>
           )}
           
 

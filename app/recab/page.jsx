@@ -1,22 +1,25 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import Navigation from '@/components/organisms/Navigation';
 import RecabChart from "@/components/organisms/RecabChart"
 import RecabTable from "@/components/organisms/RecabTable"
 import { getRekapPerKategori } from '@/lib/firestore';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function RecabPage() {
-  const [user, setUser] = useState(null)
+  const { user } = useAuth();
+  // const [user, setUser] = useState(null)
   const [reakapData, setRekapData] = useState([])
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    const mockUser = {
-      uid: 'demo-user-123',
-      name: 'Demo User',
-    }
-    setUser(mockUser)
-  }, [])
+  // useEffect(() => {
+  //   const mockUser = {
+  //     uid: 'demo-user-123',
+  //     name: 'Demo User',
+  //   }
+  //   setUser(mockUser)
+  // }, [])
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +34,7 @@ export default function RecabPage() {
 
   return(
     <main className="max-w-3xl mx-auto py-10 px-4">
+      <Navigation />
       <h1 className="text-2xl font-bold mb-6">Rekap Bulanan</h1>
       { loading ? (
         <p>Mengambil Data Recap</p>
