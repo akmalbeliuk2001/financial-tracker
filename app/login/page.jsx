@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
 import { useState } from 'react';
-// import { register } from '@/lib/auth';
+import { login } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
 
-export default function RegisterPage() {
+export default function LoginPage() {
   const router = useRouter();
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
@@ -17,16 +17,16 @@ export default function RegisterPage() {
     e.preventDefault();
     setError(null);
     try {
-      await register(form.email, form.password);
+      await login(form.email, form.password);
       router.push('/dashboard');
     } catch (err) {
       setError(err.message);
     }
   };
 
-  return(
-    <main className="w-full max-w-md mx-auto">
-      <h1>Daftar Akun</h1>
+  return (
+    <main className="max-w-md mx-auto py-10 px-4">
+      <h1 className="text-2xl font-bold mb-6">Masuk</h1>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           name="email"
@@ -49,10 +49,9 @@ export default function RegisterPage() {
           type="submit"
           className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
         >
-          Daftar
+          Masuk
         </button>
       </form>
-
     </main>
-  )
+  );
 }
