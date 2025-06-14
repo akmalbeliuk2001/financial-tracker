@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from 'react';
-// import { register } from '@/lib/auth';
+import { register } from '@/lib/auth';
 import { useRouter } from 'next/navigation';
 
 export default function RegisterPage() {
@@ -25,34 +25,46 @@ export default function RegisterPage() {
   };
 
   return(
-    <main className="w-full max-w-md mx-auto">
-      <h1>Daftar Akun</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <input
-          name="email"
-          type="email"
-          placeholder="Email"
-          className="w-full p-2 border rounded"
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          className="w-full p-2 border rounded"
-          onChange={handleChange}
-          required
-        />
-        {error && <p className="text-red-600">{error}</p>}
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
-        >
-          Daftar
-        </button>
-      </form>
-
-    </main>
+    <div className="w-full h-screen bg-[#155E95] text-[#333] flex items-center justify-center">
+      <div className='bg-white w-full max-w-[800px] h-full max-h-[500px] rounded-xl shadow-2xl overflow-hidden flex items-center justify-center gap-4'>
+        <div className='flex items-center justify-center flex-col'>
+          <img src="/coin-transparent.png" alt="coin" className='w-[300px] shrink-0'/>
+          <div className='w-full max-w-[300px]'>
+            <p className='font-bold text-2xl'>Take Care You Financial</p>
+            <p className='text-xs'>Take care of your money—it’s your quiet partner in everything you do. A little intention today can mean a lot of freedom tomorrow.</p>
+          </div>
+        </div>
+        <div className='w-full max-w-[400px]'>
+          <div className='h-full flex flex-col items-center justify-center'>
+            <h1 className='w-full max-w-[280px] font-bold text-[40px] leading-none text-center mb-4'>Create Account</h1>
+            <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-[300px]">
+              <input
+                name="email"
+                type="email"
+                placeholder="Email"
+                className="w-full p-2 border rounded-xl"
+                onChange={handleChange}
+                required
+              />
+              <input
+                name="password"
+                type="password"
+                placeholder="Password"
+                className="w-full p-2 border rounded-xl"
+                onChange={handleChange}
+                required
+              />
+              {error && <p className="text-red-600">{error}</p>}
+              <button
+                type="submit"
+                className="w-full bg-[#155E95] text-white p-2 rounded-xl cursor-pointer"
+              >
+                Regist
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
