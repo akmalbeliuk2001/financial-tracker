@@ -4,19 +4,10 @@ import { useEffect, useState } from "react"
 // import Navigation from '@/components/organisms/Navigation';
 import TransactionForm from "@/components/molecules/TransactionForm";
 import TransactionList from "@/components/organisms/TransactionList"
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 
 export default function Dashboard () {
   const { user } = useAuth();
-  // const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //   const mockUser = {
-  //     uid: 'demo-user-123', // ganti nanti dengan Firebase Auth jika diaktifkan
-  //     name: 'Demo User',
-  //   }
-  //   setUser(mockUser)
-  // }, [])
 
   return(
     <>
@@ -32,8 +23,6 @@ export default function Dashboard () {
           ) : (
             <p>Silakan login terlebih dahulu</p>
           )}
-          
-
         </div>
       </div>
     </>
