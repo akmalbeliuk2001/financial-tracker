@@ -6,7 +6,7 @@ export default function InputBase ({ type = "text", value, onchange, name, place
       onChange={onchange} 
       name={name} 
       placeholder={placeholder}
-      className={`border border-gray-300 p-2 rounded-md w-full ${className}`}
+      className={`border border-gray-300 p-2 rounded-md w-full text-[#333] ${className}`}
       {...props}
     />
   )

@@ -4,7 +4,7 @@ export default function SelectBase ({ name, value, onChange,  options = [], clas
       name={name} 
       value={value}
       onChange={onChange}
-      className={`border border-gray-300 p-2 rounded-md w-full ${className}`}
+      className={`border border-gray-300 p-2 rounded-md w-full text-[#333] ${className}`}
       {...props}
     >
       {options.map((option) => (

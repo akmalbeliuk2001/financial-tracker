@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import TransactionItem from "../molecules/TransactionItem"
-// import { getTransactions, deleteTransaction } from '@/lib/firestore';
+import { getTransactions, deleteTransaction } from '@/lib/firestore';
 
 export default function TransactionList ({ user }) {
   const [transactions, setTransactions] = useState([]);
