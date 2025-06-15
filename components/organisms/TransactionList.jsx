@@ -24,12 +24,11 @@ export default function TransactionList ({ user }) {
   }, [user]);
   
   return(
-    <div>
-      <h2 className="text-lg font-semibold mb-2">Transaksi Bulan Ini</h2>
+    <div className="text-[#333]">
       {transactions.length === 0 ? (
         <p className="text-gray-500">Belum ada transaksi.</p>
       ) : (
-        <div>
+        <div className="bg-white p-4 rounded-xl">
           {transactions.map((t) => (
             <TransactionItem key={t.id} data={t} onDelete={handleDelete} />
           ))}

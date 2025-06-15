@@ -7,7 +7,7 @@ import InputBase from "../atoms/InputBase";
 import SelectBase from "../atoms/SelectBase";
 import { addTransaction } from "@/lib/firestore"
 
-export default function TransactionForm ({ user }) {
+export default function TransactionForm ({ className = " ", user, cancelForm }) {
   const optionItems = [
     { value: '', label: 'Pilih Kategori' },
     { value: 'makan', label: 'Makan' },
@@ -38,29 +38,34 @@ export default function TransactionForm ({ user }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white p-4 rounded-xl shadow">
-      <div>
-        <LabelBase htmlFor="nominal">Nominal</LabelBase>
-        <InputBase type="number" name="nominal" value={form.nominal} onChange={handleChange}></InputBase>
-      </div>
-      <div>
-        <LabelBase htmlFor="kategori">Kategori</LabelBase>
-        <SelectBase 
-          name="kategori"
-          value={form.kategori}
-          onChange={handleChange}
-          options={optionItems}
-        />
-      </div>
-      <div>
-        <LabelBase htmlFor="deskripsi">Deskripsi</LabelBase>
-        <InputBase name="deskripsi" value={form.deskripsi} onChange={handleChange} />
-      </div>
-      <div>
-        <LabelBase htmlFor="tanggal">Tanggal</LabelBase>
-        <InputBase type="date" name="tanggal" value={form.tanggal} onChange={handleChange} />
-      </div>
-      <ButtonBase type="submit">Simpan</ButtonBase>
-    </form>
+    <div className={className}>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <div>
+          <LabelBase htmlFor="nominal">Nominal</LabelBase>
+          <InputBase type="number" name="nominal" value={form.nominal} onChange={handleChange}></InputBase>
+        </div>
+        <div>
+          <LabelBase htmlFor="kategori">Spend Category</LabelBase>
+          <SelectBase 
+            name="kategori"
+            value={form.kategori}
+            onChange={handleChange}
+            options={optionItems}
+          />
+        </div>
+        <div>
+          <LabelBase htmlFor="deskripsi">Describtion</LabelBase>
+          <InputBase name="deskripsi" value={form.deskripsi} onChange={handleChange} />
+        </div>
+        <div>
+          <LabelBase htmlFor="tanggal">Date</LabelBase>
+          <InputBase type="date" name="tanggal" value={form.tanggal} onChange={handleChange} />
+        </div>
+        <div className="w-full flex justify-end gap-x-2 mt-10">
+          <ButtonBase onClick={cancelForm} className="cursor-pointer text-[#295F98] px-2 py-1 rounded font-bold" type="submit">Cancel</ButtonBase>
+          <ButtonBase className="cursor-pointer bg-[#295F98] px-2 py-1 rounded" type="submit">Save</ButtonBase>
+        </div>
+      </form>
+    </div>
   )
 }

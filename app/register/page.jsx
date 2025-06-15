@@ -25,10 +25,10 @@ export default function RegisterPage() {
   };
 
   return(
-    <div className="w-full h-screen bg-[#155E95] text-[#333] flex items-center justify-center">
+    <div className="w-full h-screen bg-[#B3C8CF] text-[#333] flex items-center justify-center">
       <div className='bg-white w-full max-w-[800px] h-full max-h-[500px] rounded-xl shadow-2xl overflow-hidden flex items-center justify-center gap-4'>
         <div className='flex items-center justify-center flex-col'>
-          <img src="/coin-transparent.png" alt="coin" className='w-[300px] shrink-0'/>
+          <img src="/character/andy-shopping.png" alt="coin" className='w-[300px] shrink-0'/>
           <div className='w-full max-w-[300px]'>
             <p className='font-bold text-2xl'>Take Care You Financial</p>
             <p className='text-xs'>Take care of your money—it’s your quiet partner in everything you do. A little intention today can mean a lot of freedom tomorrow.</p>
@@ -42,7 +42,7 @@ export default function RegisterPage() {
                 name="email"
                 type="email"
                 placeholder="Email"
-                className="w-full p-2 border rounded-xl"
+                className="w-full px-4 py-2 border rounded-full"
                 onChange={handleChange}
                 required
               />
@@ -50,14 +50,14 @@ export default function RegisterPage() {
                 name="password"
                 type="password"
                 placeholder="Password"
-                className="w-full p-2 border rounded-xl"
+                className="w-full px-4 py-2 border rounded-full"
                 onChange={handleChange}
                 required
               />
               {error && <p className="text-red-600">{error}</p>}
               <button
                 type="submit"
-                className="w-full bg-[#155E95] text-white p-2 rounded-xl cursor-pointer"
+                className="w-full bg-black text-white p-2 rounded-full cursor-pointer"
               >
                 Regist
               </button>
