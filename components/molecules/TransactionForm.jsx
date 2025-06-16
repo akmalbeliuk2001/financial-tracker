@@ -7,7 +7,7 @@ import InputBase from "../atoms/InputBase";
 import SelectBase from "../atoms/SelectBase";
 import { addTransaction } from "@/lib/firestore"
 
-export default function TransactionForm ({ className = " ", user, cancelForm }) {
+export default function TransactionForm ({ className = " ", user, closeForm }) {
   const optionItems = [
     { value: '', label: 'Pilih Kategori' },
     { value: 'makan', label: 'Makan' },
@@ -35,6 +35,7 @@ export default function TransactionForm ({ className = " ", user, cancelForm }) 
     if (!user) return;
     await addTransaction(user.uid, form);
     setForm({ ...form, nominal: '', deskripsi: '' }); // reset sebagian
+    closeForm();
   };
 
   return (
@@ -62,7 +63,7 @@ export default function TransactionForm ({ className = " ", user, cancelForm }) 
           <InputBase type="date" name="tanggal" value={form.tanggal} onChange={handleChange} />
         </div>
         <div className="w-full flex justify-end gap-x-2 mt-10">
-          <ButtonBase onClick={cancelForm} className="cursor-pointer text-[#295F98] px-2 py-1 rounded font-bold" type="submit">Cancel</ButtonBase>
+          <ButtonBase className="cursor-pointer text-[#295F98] px-2 py-1 rounded font-bold" type="submit" onClick={closeForm}>Cancel</ButtonBase>
           <ButtonBase className="cursor-pointer bg-[#295F98] px-2 py-1 rounded" type="submit">Save</ButtonBase>
         </div>
       </form>

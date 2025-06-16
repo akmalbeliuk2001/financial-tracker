@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react"
 import { useAuth } from '../../context/AuthContext';
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
+
 
 // import Navigation from '@/components/organisms/NavigationPage';
 import TransactionForm from "@/components/molecules/TransactionForm";
@@ -34,19 +37,26 @@ export default function Dashboard () {
       <div className="relative w-full h-screen bg-[#B3C8CF] flex items-center justify-center flex-col gap-y-4">
         {/* <Navigation /> */}
         <div className="w-full max-w-[800px] px-4">
-          {/* <p className="text-[#333] text-[50px] font-extrabold">Your Financial Dashboard</p> */}
           <div className="w-full flex items-center justify-between mb-3">
             <h2 className="text-lg font-semibold text-[#333]">Transaction This Month</h2>
-            <ButtonBase className="bg-blue-600 px-2 py-1 rounded cursor-pointer" onClick={toggleShowTransactionForm}>Add +</ButtonBase>
+            <div className="flex items-center gap-x-2">
+              <ButtonBase className="bg-blue-600 px-2 py-1 rounded cursor-pointer" onClick={toggleShowTransactionForm}>Add +</ButtonBase>
+              <Link href="/recap" className="bg-white rounded text-[#333] px-2 py-1 cursor-pointer">
+                <div className="flex items-center gap-x-2">
+                  <p>Recap Page</p>
+                  <FaArrowRight />
+                </div>
+              </Link>
+            </div>
           </div>
           <TransactionList user={user} />
         </div>
 
-        {showTransactionFrom ? (
+        {showTransactionFrom && (
           <div className="absolute w-full h-full bg-black/80 flex items-center justify-center">
-            <TransactionForm cancelForm={toggleShowTransactionForm} className="bg-white w-full max-w-[500px] rounded-xl p-4" user={user} />
+            <TransactionForm closeForm={toggleShowTransactionForm} className="bg-white w-full max-w-[500px] rounded-xl p-4" user={user} />
           </div>
-        ): undefined}
+        )}
       </div>
     </>
   )

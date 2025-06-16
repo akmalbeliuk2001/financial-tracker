@@ -10,12 +10,14 @@ export default function RegisterPage() {
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
+    console.log("hallo", e.target.name)
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError(null);
+    
     try {
       await register(form.email, form.password);
       router.push('/dashboard');

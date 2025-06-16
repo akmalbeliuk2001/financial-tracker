@@ -13,9 +13,7 @@ export default function TransactionItem({ data, onDelete }) {
         <p className="text-sm text-gray-600">{kategori} • {deskripsi}</p>
         <p className="text-xs text-gray-500">{format(new Date(tanggal), 'dd MMM yyyy')}</p>
       </div>
-      <ButtonBase className="bg-red-500 hover:bg-red-600 px-2 py-1 text-sm" onClick={() => onDelete(id)}>
-        Hapus
-      </ButtonBase>
+      <ButtonBase className="bg-red-500 hover:bg-red-600 px-2 py-1 text-sm text-white rounded cursor-pointer" onClick={() => onDelete(id)}>Hapus</ButtonBase>
     </div>
   );
 }
