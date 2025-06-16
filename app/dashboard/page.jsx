@@ -1,16 +1,16 @@
 'use client'
 
+import Link from "next/link";
 import { useEffect, useState } from "react"
 import { useAuth } from '../../context/AuthContext';
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 
 
-// import Navigation from '@/components/organisms/NavigationPage';
-import TransactionForm from "@/components/molecules/TransactionForm";
-import TransactionList from "@/components/organisms/TransactionList"
 import ButtonBase from "@/components/atoms/ButtonBase";
+import TransactionForm from "@/components/molecules/TransactionForm";
+import TransactionList from "@/components/organisms/TransactionList";
+import InformationSaldo from "@/components/molecules/InformationSaldo";
 
 export default function Dashboard () {
   const { user } = useAuth();
@@ -35,7 +35,6 @@ export default function Dashboard () {
   return(
     <>
       <div className="relative w-full h-screen bg-[#B3C8CF] flex items-center justify-center flex-col gap-y-4">
-        {/* <Navigation /> */}
         <div className="w-full max-w-[800px] px-4">
           <div className="w-full flex items-center justify-between mb-3">
             <h2 className="text-lg font-semibold text-[#333]">Transaction This Month</h2>
@@ -50,6 +49,7 @@ export default function Dashboard () {
             </div>
           </div>
           <TransactionList user={user} />
+          <InformationSaldo />
         </div>
 
         {showTransactionFrom && (

@@ -7,7 +7,7 @@ export default function TransactionItem({ data, onDelete }) {
   const { id, nominal, kategori, deskripsi, tanggal } = data;
 
   return (
-    <div className="flex items-start justify-between bg-gray-100 rounded-lg p-3 mb-2 shadow-sm">
+    <div className="flex items-start justify-between bg-gray-100 rounded-lg p-3 mb-2 shadow-sm mt-4">
       <div>
         <p className="text-lg font-semibold text-blue-700">Rp {Number(nominal).toLocaleString()}</p>
         <p className="text-sm text-gray-600">{kategori} • {deskripsi}</p>
