@@ -15,7 +15,7 @@ import TransactionList from "@/components/organisms/TransactionList";
 import InformationSaldo from "@/components/molecules/InformationSaldo";
 
 export default function Dashboard () {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
   const router = useRouter();
 
   const [showTransactionFrom, setShowTransactionFrom] =  useState(false);
@@ -25,12 +25,12 @@ export default function Dashboard () {
   }
 
   useEffect(() => {
-    if (user === null) {
-      router.push("/login")
+    if (!loading && !user) {
+      router.push('/login');
     }
-  }, [user])
+  }, [loading, user]);
 
-  if (user === null) {
+  if (loading) {
     return <p className="p-4">Mengecek sesi login...</p>
   }
 
