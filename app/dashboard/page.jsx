@@ -5,6 +5,8 @@ import { useEffect, useState } from "react"
 import { useAuth } from '../../context/AuthContext';
 import { useRouter } from "next/navigation";
 import { FaArrowRight } from "react-icons/fa";
+import { RiSettings4Fill } from "react-icons/ri";
+
 
 
 import ButtonBase from "@/components/atoms/ButtonBase";
@@ -42,10 +44,11 @@ export default function Dashboard () {
               <ButtonBase className="bg-blue-600 px-2 py-1 rounded cursor-pointer" onClick={toggleShowTransactionForm}>Add +</ButtonBase>
               <Link href="/recap" className="bg-white rounded text-[#333] px-2 py-1 cursor-pointer">
                 <div className="flex items-center gap-x-2">
-                  <p>Recap Page</p>
+                  <p className="whitespace-nowrap">Recap Page</p>
                   <FaArrowRight />
                 </div>
               </Link>
+              <RiSettings4Fill className="text-black text-xl" />
             </div>
           </div>
           <TransactionList user={user} />

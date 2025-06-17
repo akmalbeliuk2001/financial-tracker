@@ -17,10 +17,9 @@ export default function RekapPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("usernya nih", user, user === null)
-    // if (user === null) {
-    //   router.push('/login');
-    // }
+    if (user === null) {
+      router.push('/login');
+    }
   }, [user]);
 
   useEffect(() => {
@@ -28,7 +27,6 @@ export default function RekapPage() {
       if (!user) return;
       setLoading(true);
       const data = await getRekapPerKategori(user.uid, 0);
-      console.log("Data yang didapet", data)
       setRekapData(data);
       setLoading(false);
     };

@@ -10,7 +10,6 @@ export default function RegisterPage() {
   const [error, setError] = useState(null);
 
   const handleChange = (e) => {
-    console.log("hallo", e.target.name)
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
