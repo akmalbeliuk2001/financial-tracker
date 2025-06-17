@@ -6,7 +6,7 @@ export default function RekapTable({ data }) {
   }
 
   return (
-    <div className="mt-6 bg-white p-4 rounded-xl shadow">
+    <div className="mt-6 bg-white p-4 rounded-xl shadow text-[#333]">
       <h2 className="text-lg font-semibold mb-3">Detail Rekap Bulanan</h2>
       <table className="w-full text-left border-separate border-spacing-y-2">
         <thead>

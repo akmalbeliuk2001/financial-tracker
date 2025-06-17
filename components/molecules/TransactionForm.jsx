@@ -24,13 +24,10 @@ export default function TransactionForm ({ className = " ", user, closeForm }) {
   })
 
   const handleChange = (e) => {
-    console.log("ini adalah eventnya:", e.target.value)
-
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
   const handleSubmit = async (e) => {
-    console.log("Handle submit dari data form input")
     e.preventDefault();
     if (!user) return;
     await addTransaction(user.uid, form);

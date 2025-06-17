@@ -17,10 +17,9 @@ export default function RekapPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("usernya nih", user, user === null)
-    // if (user === null) {
-    //   router.push('/login');
-    // }
+    if (user === null) {
+      router.push('/login');
+    }
   }, [user]);
 
   useEffect(() => {
@@ -28,7 +27,6 @@ export default function RekapPage() {
       if (!user) return;
       setLoading(true);
       const data = await getRekapPerKategori(user.uid, 0);
-      console.log("Data yang didapet", data)
       setRekapData(data);
       setLoading(false);
     };
@@ -41,20 +39,23 @@ export default function RekapPage() {
   }
 
   return (
-    <main className="max-w-3xl mx-auto py-10 px-4">
-      <Navigation />
-      <h1 className="text-2xl font-bold mb-6">Rekap Bulanan</h1>
+    <div className='bg-white w-full h-full text-[#333]'>
+      <main className="max-w-3xl mx-auto py-10 px-4">
+        <Navigation />
+        <h1 className="text-2xl font-bold mb-6">Rekap Bulanan</h1>
 
-      {loading ? (
-        <p>Mengambil data rekap...</p>
-      ) : rekapData.length === 0 ? (
-        <p className="text-gray-500">Belum ada data transaksi bulan lalu.</p>
-      ) : (
-        <>
-          <RekapChart data={rekapData} />
-          <RekapTable data={rekapData} />
-        </>
-      )}
-    </main>
+        {loading ? (
+          <p>Mengambil data rekap...</p>
+        ) : rekapData.length === 0 ? (
+          <p className="text-gray-500">Belum ada data transaksi bulan lalu.</p>
+        ) : (
+          <>
+            <RekapChart data={rekapData} />
+            <RekapTable data={rekapData} />
+          </>
+        )}
+      </main>
+
+    </div>
   );
 }

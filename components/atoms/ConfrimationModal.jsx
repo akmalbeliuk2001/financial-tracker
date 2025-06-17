@@ -6,7 +6,7 @@ export default function ConfirmationModal({confirmationMessage = "", confirm, ca
       <div className="relative bg-white rounded w-[300px] h-[150px] text-[#333] p-4">
         <div className="text-lg">{ confirmationMessage }</div>
         <div className="absolute bottom-4 right-4 full flex justify-end items-center gap-x-4">
-          <ButtonBase className="font-bold" onClick={cancel}>Cancel</ButtonBase>
+          <ButtonBase className="font-bold text-[#3674B5] cursor-pointer" onClick={cancel}>Cancel</ButtonBase>
           <ButtonBase className="bg-blue text-white px-2 py-1 rounded cursor-pointer font-bold" onClick={confirm}>Confirm</ButtonBase>
         </div>
       </div>

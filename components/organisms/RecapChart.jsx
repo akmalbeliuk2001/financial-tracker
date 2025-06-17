@@ -10,7 +10,7 @@ export default function RecapChart({ data }) {
   }
 
   return (
-    <div className="w-full h-80 bg-white p-4 rounded-xl shadow">
+    <div className="w-full h-80 bg-white p-4 rounded-xl shadow text-[#333]">
       <h2 className="text-lg font-semibold mb-4">Rekap Pengeluaran per Kategori</h2>
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
